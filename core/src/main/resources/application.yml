@@ -8,6 +8,11 @@ env-vars:
   rds-database: ${RDS_DATABASE}
   rds-enable-read-replica: ${RDS_ENABLE_READ_REPLICA}
 
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+
 cloud:
   aws:
     credentials:
