@@ -1,0 +1,24 @@
+env-vars:
+  aws-access-key: ${AWS_ACCESS_KEY}
+  aws-secret-key: ${AWS_SECRET_KEY}
+  aws-region: ${AWS_REGION}
+  rds-db-id: ${RDS_DB_ID}
+  rds-username: ${RDS_USERNAME}
+  rds-password: ${RDS_PASSWORD}
+  rds-database: ${RDS_DATABASE}
+  rds-enable-read-replica: ${RDS_ENABLE_READ_REPLICA}
+
+cloud:
+  aws:
+    credentials:
+      access-key: ${env-vars.aws-access-key}
+      secret-key: ${env-vars.aws-secret-key}
+    region:
+      static: ${env-vars.aws-region}
+    rds:
+      instances:
+        - dbInstanceIdentifier: ${env-vars.rds-db-id}
+          username: ${env-vars.rds-username}
+          password: ${env-vars.rds-password}
+          databaseName: ${env-vars.rds-database}
+          readReplicaSupport: ${env-vars.rds-enable-read-replica}
